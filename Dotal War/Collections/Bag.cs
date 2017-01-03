@@ -9,16 +9,15 @@ namespace Dotal_War
 {
     public class Bag
     {
-        // Add Data properties here
-        #region Components
-        public KinematicComponent kinematicComponent { get; set; }
-        public GraphicsComponent graphicsComponent { get; set; }
-
-        #endregion
-
         #region Int/Float
         public int objectid { get; set; }
         public float rotation { get; set; }
+        #endregion
+
+
+        #region  Boolians
+        public bool Selected { get; set; }
+
         #endregion
 
         #region Vector
@@ -27,7 +26,7 @@ namespace Dotal_War
         #endregion
 
         #region Enumerations
-
+        public selectType SelectType { get; set; }
         #endregion
 
         #region Lists

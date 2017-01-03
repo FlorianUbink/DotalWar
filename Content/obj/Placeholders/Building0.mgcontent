@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Projecs/DotalWar/Content/Placeholders/Building0.png</SourceFile>
-  <SourceTime>2016-12-09T15:51:27.4683746+01:00</SourceTime>
-  <DestFile>D:/Projecs/DotalWar/Content/bin/Placeholders/Building0.xnb</DestFile>
-  <DestTime>2016-12-09T15:55:44.5845038+01:00</DestTime>
+  <SourceFile>C:/Users/Florian/Source/Repos/DotalWar/Content/Placeholders/Building0.png</SourceFile>
+  <SourceTime>2016-12-30T17:11:45.0864665+01:00</SourceTime>
+  <DestFile>C:/Users/Florian/Source/Repos/DotalWar/Content/bin/Placeholders/Building0.xnb</DestFile>
+  <DestTime>2017-01-03T20:21:54.9405721+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
