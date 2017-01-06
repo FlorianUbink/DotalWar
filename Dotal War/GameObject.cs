@@ -9,7 +9,7 @@ namespace Dotal_War
 
         public GameObject(int objectid, Vector2 position)
         {
-            this.objectid = objectid;
+            this.Objectid = objectid;
             Position = position;
         }
     }

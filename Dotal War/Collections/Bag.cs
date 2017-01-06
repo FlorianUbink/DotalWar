@@ -10,8 +10,11 @@ namespace Dotal_War
     public class Bag
     {
         #region Int/Float
-        public int objectid { get; set; }
-        public float rotation { get; set; }
+        public int Objectid { get; set; }
+        public float Orientation { get; set; }
+        public float Rotation { get; set; }
+        public float MaxSpeed { get; set; }
+        public float MaxAcceleration { get; set; }
         #endregion
 
 
@@ -22,6 +25,9 @@ namespace Dotal_War
 
         #region Vector
         public Vector2 Position { get; set; }
+        public Vector2 Target { get; set; }
+        public Vector2 Velocity { get; set; }
+        public Vector2 LiniarSteer { get; set; }
         public Vector2 RenderOffset { get; set; }
         #endregion
 
@@ -30,7 +36,6 @@ namespace Dotal_War
         #endregion
 
         #region Lists
-        public List<Vector2> targetList { get; set; }
 
         #endregion
 

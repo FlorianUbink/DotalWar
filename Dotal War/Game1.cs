@@ -1,5 +1,6 @@
 ﻿using Dotal_War.Collections;
 using Dotal_War.Components;
+using Dotal_War.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -21,9 +22,9 @@ namespace Dotal_War
         int returnID;
 
         public SelectionRectange select;
-        Perception testPerception;
-        Graphics graphicsComponent;
         ObjectManager objectManger;
+        ComponentManager componentManager;
+        TargetManager targetManager;
 
         public Game1()
         {
@@ -31,6 +32,7 @@ namespace Dotal_War
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
+
             IsMouseVisible = true;
         }
 
@@ -42,20 +44,25 @@ namespace Dotal_War
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            select = new SelectionRectange(this);
             objectManger = new ObjectManager();
-            testPerception = new Perception();
-            graphicsComponent = new Graphics(Content);
+            componentManager = new ComponentManager(this);
+            select = new SelectionRectange(this);
+            targetManager = new TargetManager();
 
 
-            //#### TESTOBJECTEN  ####
+
+            #region TESTOBJECTEN
+
             for (int i = 0; i < 3; i++)
             {
                 returnID = objectManger.AddObject(new Vector2(WindowWidth / 2 + 20*i, WindowHeight / 2));
-                testPerception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
-                graphicsComponent.Add(objectManger.objectDictionary[returnID], graphicsComponent.Unit0, Color.White);
+                componentManager.perception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
+                componentManager.behaviour.Add(objectManger.objectDictionary[returnID]);
+                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 100, 10f);
+                componentManager.graphics.Add(objectManger.objectDictionary[returnID], componentManager.graphics.Unit0, Color.White);
             }
+
+            #endregion
 
             base.Initialize();
         }
@@ -92,7 +99,8 @@ namespace Dotal_War
                 Exit();
             MouseState mouse = Mouse.GetState();
             select.Run(mouse);
-            testPerception.RunSystem(select);
+            targetManager.RunManager(objectManger, mouse);
+            componentManager.RunSystems(gameTime, select);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -108,7 +116,7 @@ namespace Dotal_War
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            graphicsComponent.RunSystem(spriteBatch);
+            componentManager.graphics.RunSystem(spriteBatch);
             select.Draw(spriteBatch);
             spriteBatch.End();
 
