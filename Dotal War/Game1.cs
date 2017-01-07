@@ -58,7 +58,7 @@ namespace Dotal_War
                 returnID = objectManger.AddObject(new Vector2(WindowWidth / 2 + 20*i, WindowHeight / 2));
                 componentManager.perception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
                 componentManager.behaviour.Add(objectManger.objectDictionary[returnID]);
-                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 100, 10f);
+                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 100, 50f);
                 componentManager.graphics.Add(objectManger.objectDictionary[returnID], componentManager.graphics.Unit0, Color.White);
             }
 

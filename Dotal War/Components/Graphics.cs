@@ -47,7 +47,7 @@ namespace Dotal_War.Components
                 }
                 // ### TESTEND ####
 
-                spriteBatch.Draw(update.Sprite, update.Position - update.RenderOffset, update.Color);
+                spriteBatch.Draw(update.Sprite, update.Position, update.Color);
             }
         }
 

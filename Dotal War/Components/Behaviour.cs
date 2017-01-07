@@ -28,15 +28,14 @@ namespace Dotal_War.Components
             foreach(GameObject update in subscribers)
             {
                 seeking = Seek(update) * 1;
+                Arrival(update);
                 update.LiniarSteer = seeking;
             }
         }
 
-
         private Vector2 Seek(GameObject update)
         {
-            Vector2 temp = new Vector2();
-            temp = update.Target - update.Position;
+            Vector2 temp = update.Target - update.Position;
             temp.Normalize();
             temp *= update.MaxAcceleration;
             if (float.IsNaN(temp.Length()))
@@ -44,6 +43,16 @@ namespace Dotal_War.Components
                 temp = Vector2.Zero;
             }
             return temp;
+        }
+
+        private void Arrival(GameObject update)
+        {
+            Vector2 temp = update.Target - update.Position;
+            if (temp.Length() <= 2)
+            {
+                update.Target = update.Position;
+                update.Velocity = Vector2.Zero;
+            }
         }
     }
 }

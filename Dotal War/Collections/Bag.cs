@@ -11,7 +11,6 @@ namespace Dotal_War
     {
         #region Int/Float
         public int Objectid { get; set; }
-        public float Orientation { get; set; }
         public float Rotation { get; set; }
         public float MaxSpeed { get; set; }
         public float MaxAcceleration { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace Dotal_War.Components
@@ -28,7 +29,6 @@ namespace Dotal_War.Components
             {
                 update.Velocity += update.LiniarSteer * gameTime.ElapsedGameTime.Milliseconds / 1000;
                 update.Velocity = SpeedClip(update.Velocity, update.MaxSpeed);
-
                 update.Position += update.Velocity * gameTime.ElapsedGameTime.Milliseconds / 1000;
             }
         }
