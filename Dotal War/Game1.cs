@@ -53,12 +53,12 @@ namespace Dotal_War
 
             #region TESTOBJECTEN
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 50; i++)
             {
-                returnID = objectManger.AddObject(new Vector2(WindowWidth / 2 + 20*i, WindowHeight / 2));
+                returnID = objectManger.AddObject(new Vector2(20+ 20*i, WindowHeight / 2));
                 componentManager.perception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
                 componentManager.behaviour.Add(objectManger.objectDictionary[returnID]);
-                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 100, 50f);
+                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 50, 50f);
                 componentManager.graphics.Add(objectManger.objectDictionary[returnID], componentManager.graphics.Unit0, Color.White);
             }
 

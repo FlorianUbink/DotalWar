@@ -27,7 +27,7 @@ namespace Dotal_War.Components
         {
             subject.Color = color;
             subject.Sprite = sprite;
-            subject.RenderOffset = new Vector2(sprite.Width / 2, sprite.Height / 2);
+            subject.Origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
             subscribers.Add(subject);
         }
 
@@ -47,7 +47,7 @@ namespace Dotal_War.Components
                 }
                 // ### TESTEND ####
 
-                spriteBatch.Draw(update.Sprite, update.Position, update.Color);
+                spriteBatch.Draw(update.Sprite, update.Position, null, update.Color, update.Rotation, update.Origin, 1f, SpriteEffects.None, 0f);
             }
         }
 

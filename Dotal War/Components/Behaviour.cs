@@ -10,6 +10,7 @@ namespace Dotal_War.Components
     public class Behaviour
     {
         Vector2 seeking;
+        float seekWeight = 1;
         List<GameObject> subscribers;
 
         public Behaviour()
@@ -27,7 +28,7 @@ namespace Dotal_War.Components
         {
             foreach(GameObject update in subscribers)
             {
-                seeking = Seek(update) * 1;
+                seeking = Seek(update) * seekWeight;
                 Arrival(update);
                 update.LiniarSteer = seeking;
             }
@@ -36,6 +37,10 @@ namespace Dotal_War.Components
         private Vector2 Seek(GameObject update)
         {
             Vector2 temp = update.Target - update.Position;
+            if (temp.Length() != 0)
+            {
+                seekWeight = 1;
+            }
             temp.Normalize();
             temp *= update.MaxAcceleration;
             if (float.IsNaN(temp.Length()))
@@ -48,9 +53,10 @@ namespace Dotal_War.Components
         private void Arrival(GameObject update)
         {
             Vector2 temp = update.Target - update.Position;
-            if (temp.Length() <= 2)
+            if (temp.Length() <=3)
             {
                 update.Target = update.Position;
+                seekWeight = 0;
                 update.Velocity = Vector2.Zero;
             }
         }

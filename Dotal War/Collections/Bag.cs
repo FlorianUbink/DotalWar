@@ -27,7 +27,7 @@ namespace Dotal_War
         public Vector2 Target { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 LiniarSteer { get; set; }
-        public Vector2 RenderOffset { get; set; }
+        public Vector2 Origin { get; set; }
         #endregion
 
         #region Enumerations

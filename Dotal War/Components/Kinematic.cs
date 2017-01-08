@@ -29,6 +29,16 @@ namespace Dotal_War.Components
             {
                 update.Velocity += update.LiniarSteer * gameTime.ElapsedGameTime.Milliseconds / 1000;
                 update.Velocity = SpeedClip(update.Velocity, update.MaxSpeed);
+
+                if (update.Velocity.Length() != 0)
+                {
+                    update.Rotation = (float)(Math.Atan2(update.Velocity.Y, update.Velocity.X) + Math.PI / 2);
+                }
+
+                else
+                {
+                    update.Rotation = 0f;
+                }
                 update.Position += update.Velocity * gameTime.ElapsedGameTime.Milliseconds / 1000;
             }
         }
