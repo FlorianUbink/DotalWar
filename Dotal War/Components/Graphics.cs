@@ -15,12 +15,14 @@ namespace Dotal_War.Components
 
 
         public Texture2D Unit0 { get; set; }
+        public Texture2D Building0 { get; set; }
 
 
         public Graphics(ContentManager content)
         {
             subscribers = new List<GameObject>();
             Unit0 = content.Load<Texture2D>(@"Placeholders\Unit0");
+            Building0 = content.Load<Texture2D>(@"Placeholders\Building0");
         }
 
         public void Add(GameObject subject, Texture2D sprite, Color color)

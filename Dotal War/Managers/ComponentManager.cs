@@ -1,4 +1,5 @@
-﻿using Dotal_War.Components;
+﻿using Dotal_War.Collections;
+using Dotal_War.Components;
 using Microsoft.Xna.Framework;
 
 namespace Dotal_War.Managers
@@ -19,9 +20,9 @@ namespace Dotal_War.Managers
 
         }
 
-        public void RunSystems(GameTime gameTime, SelectionRectange selection)
+        public void RunSystems(GameTime gameTime, SelectionRectange selection, ObjectManager objectManager)
         {
-            perception.RunSystem(selection);
+            perception.RunSystem(selection, objectManager);
             behaviour.RunSystem();
             kinematic.RunSystem(gameTime);
         }

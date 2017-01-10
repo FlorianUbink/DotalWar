@@ -22,7 +22,7 @@ namespace Dotal_War
         int returnID;
 
         public SelectionRectange select;
-        ObjectManager objectManger;
+        public ObjectManager objectManger;
         ComponentManager componentManager;
         TargetManager targetManager;
 
@@ -53,11 +53,11 @@ namespace Dotal_War
 
             #region TESTOBJECTEN
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 2; i++)
             {
-                returnID = objectManger.AddObject(new Vector2(20+ 20*i, WindowHeight / 2));
+                returnID = objectManger.AddObject(new Vector2(20+ 100*i, WindowHeight / 2));
                 componentManager.perception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
-                componentManager.behaviour.Add(objectManger.objectDictionary[returnID]);
+                componentManager.behaviour.Add(objectManger.objectDictionary[returnID],1f);
                 componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 50, 50f);
                 componentManager.graphics.Add(objectManger.objectDictionary[returnID], componentManager.graphics.Unit0, Color.White);
             }
@@ -100,7 +100,7 @@ namespace Dotal_War
             MouseState mouse = Mouse.GetState();
             select.Run(mouse);
             targetManager.RunManager(objectManger, mouse);
-            componentManager.RunSystems(gameTime, select);
+            componentManager.RunSystems(gameTime, select,objectManger);
             // TODO: Add your update logic here
 
             base.Update(gameTime);

@@ -12,8 +12,9 @@ namespace Dotal_War
         #region Int/Float
         public int Objectid { get; set; }
         public float Rotation { get; set; }
-        public float MaxSpeed { get; set; }
-        public float MaxAcceleration { get; set; }
+        public float max_Speed { get; set; }
+        public float max_Acceleration { get; set; }
+        public float decay_Coefficient { get; set; }
         #endregion
 
 
@@ -35,7 +36,7 @@ namespace Dotal_War
         #endregion
 
         #region Lists
-
+        public List<Vector2> ThresholdObjects { get; set; }
         #endregion
 
         #region Misc

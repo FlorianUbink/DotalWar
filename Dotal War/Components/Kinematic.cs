@@ -18,8 +18,8 @@ namespace Dotal_War.Components
             subscribers.Add(subject);
             subject.Velocity = new Vector2();
             subject.Target = subject.Position;
-            subject.MaxSpeed = speed;
-            subject.MaxAcceleration = acceleration;
+            subject.max_Speed = speed;
+            subject.max_Acceleration = acceleration;
             
         }
 
@@ -28,7 +28,7 @@ namespace Dotal_War.Components
             foreach (GameObject update in subscribers)
             {
                 update.Velocity += update.LiniarSteer * gameTime.ElapsedGameTime.Milliseconds / 1000;
-                update.Velocity = SpeedClip(update.Velocity, update.MaxSpeed);
+                update.Velocity = SpeedClip(update.Velocity, update.max_Speed);
 
                 if (update.Velocity.Length() != 0)
                 {
