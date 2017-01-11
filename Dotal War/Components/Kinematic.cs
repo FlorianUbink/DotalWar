@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Dotal_War.Components
 {
@@ -39,6 +40,7 @@ namespace Dotal_War.Components
                 {
                     update.Rotation = 0f;
                 }
+
                 update.Position += update.Velocity * gameTime.ElapsedGameTime.Milliseconds / 1000;
             }
         }

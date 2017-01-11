@@ -13,7 +13,6 @@ namespace Dotal_War.Components
     public class Perception
     {
         List<GameObject> subscribers;
-        float threshold = 10f;
 
         public Perception()
         {
@@ -24,6 +23,7 @@ namespace Dotal_War.Components
         {
             subscribers.Add(subject);
             subject.SelectType = type;
+            subject.ThresholdObjects = new List<Vector2>();
         }
 
         public void RunSystem(SelectionRectange selection, ObjectManager objectManager)
@@ -65,7 +65,7 @@ namespace Dotal_War.Components
                 {
                     float distance = Vector2.Distance(update.Position, subjectThreshold.Position);
 
-                    if(distance != 0 && distance<threshold)
+                    if(distance != 0 && distance<update.threshold && subjectThreshold.Velocity.Length() > 0)
                     {
                         objectsinThreshold.Add(subjectThreshold.Position);
                     }

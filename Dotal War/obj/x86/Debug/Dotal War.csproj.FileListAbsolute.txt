@@ -160,3 +160,31 @@ C:\Users\Florian\Desktop\Projects\Dotal War\Dotal War\bin\Windows\x86\Debug\Shar
 C:\Users\Florian\Desktop\Projects\Dotal War\Dotal War\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\Florian\Desktop\Projects\Dotal War\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Florian\Desktop\Projects\Dotal War\Dotal War\obj\x86\Debug\Dotal War.csprojResolveAssemblyReference.cache
+D:\Repositories\DotalWar\Dotal War\obj\x86\Debug\Dotal War.exe
+D:\Repositories\DotalWar\Dotal War\obj\x86\Debug\Dotal War.pdb
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\Content\Misc\Piksel.xnb
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\Content\Placeholders\Building0.xnb
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\Content\Placeholders\Unit0.xnb
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\Dotal War.exe
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\Dotal War.pdb
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\MonoGame.Framework.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.XInput.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\MonoGame.Framework.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.XInput.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+D:\Repositories\DotalWar\Dotal War\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+D:\Repositories\DotalWar\Dotal War\obj\x86\Debug\Dotal War.csprojResolveAssemblyReference.cache

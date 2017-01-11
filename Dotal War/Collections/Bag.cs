@@ -15,8 +15,8 @@ namespace Dotal_War
         public float max_Speed { get; set; }
         public float max_Acceleration { get; set; }
         public float decay_Coefficient { get; set; }
+        public float threshold { get; set; }
         #endregion
-
 
         #region  Boolians
         public bool Selected { get; set; }
