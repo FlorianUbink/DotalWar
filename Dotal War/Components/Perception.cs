@@ -26,12 +26,21 @@ namespace Dotal_War.Components
             subject.ThresholdObjects = new List<Vector2>();
         }
 
+        public void Remove(GameObject removeObject)
+        {
+            if (subscribers.Contains(removeObject))
+            {
+                subscribers.Remove(removeObject);
+            }
+        }
+
         public void RunSystem(SelectionRectange selection, ObjectManager objectManager)
         {
             foreach (GameObject update in subscribers)
             {
                 update.Selected = Selection(update, selection);
                 update.ThresholdObjects = ThresholdObjects(update, objectManager);
+                update.EnemyID = ClosestTarget(update, objectManager);
             }
         }
 
@@ -39,12 +48,12 @@ namespace Dotal_War.Components
 
         private bool Selection(GameObject update, SelectionRectange selection)
         {
-            if (selection.selectRectangle.Contains(update.Position))
+            if (selection.selectRectangle.Contains(update.Position) && update.AccessID == selection.AccessID)
             {
                 return true;
             }
 
-            else if (!selection.lockedSelection)
+            else if (!selection.lockedSelection && update.AccessID == selection.AccessID)
             {
                 return false;
             }
@@ -78,6 +87,45 @@ namespace Dotal_War.Components
             {
                 return null;
             }
+        }
+
+        private int ClosestTarget(GameObject update, ObjectManager objectManager)
+        {
+            int closestID = -1;
+            // check if update is able to attack
+            if (update.canAttack && update.Alive )
+            {
+                float shortestDistance = -1;
+                bool first = true;
+                // iterate over every other object
+                foreach (GameObject subject in objectManager.objectDictionary.Values)
+                {
+                    // check if subjects are alive, attackable and from the other team
+                    if (subject.Alive && subject.AttackAble && subject.AccessID != update.AccessID)
+                    {
+                        float distance = Vector2.Distance(update.Position, subject.Position);
+                        // check if the distance is good for attack option
+                        if (distance <= update.attack_range)
+                        {
+                            // find out which target is closest, thats your new target
+                            if (first)
+                            {
+                                shortestDistance = distance;
+                                closestID = subject.Objectid;
+                                first = false;
+                            }
+
+                            else if (distance < shortestDistance)
+                            {
+                                shortestDistance = distance;
+                                closestID = subject.Objectid;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return closestID;
         }
 
         #endregion

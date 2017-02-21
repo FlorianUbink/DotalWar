@@ -19,11 +19,11 @@ namespace Dotal_War
         int WindowWidth = 1280;
         int WindowHeight = 720;
 
-        int returnID;
-
+        Player firstPlayer;
         public SelectionRectange select;
-        public ObjectManager objectManger;
-        ComponentManager componentManager;
+        public ObjectManager objectManager;
+        public ComponentManager componentManager;
+        DammageDistribution dmgDistribution;
         TargetManager targetManager;
 
         public Game1()
@@ -44,23 +44,31 @@ namespace Dotal_War
         /// </summary>
         protected override void Initialize()
         {
-            objectManger = new ObjectManager();
+
+            objectManager = new ObjectManager();
             componentManager = new ComponentManager(this);
-            select = new SelectionRectange(this);
+            firstPlayer = new Player(this, 1);
+            select = new SelectionRectange(this,firstPlayer.PlayerID);
+            dmgDistribution = new DammageDistribution();
             targetManager = new TargetManager();
 
 
 
             #region TESTOBJECTEN
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i <10; i++)
             {
-                returnID = objectManger.AddObject(new Vector2(20+ 100*i, WindowHeight / 2));
-                componentManager.perception.Add(objectManger.objectDictionary[returnID], selectType.Movable);
-                componentManager.behaviour.Add(objectManger.objectDictionary[returnID],5f,30f);
-                componentManager.kinematic.Add(objectManger.objectDictionary[returnID], 50, 50f);
-                componentManager.graphics.Add(objectManger.objectDictionary[returnID], componentManager.graphics.Unit0, Color.White);
+                firstPlayer.Add(new Vector2(20 + 20 * i, WindowHeight / 2));
             }
+
+
+            // Test Enemies
+            int objectID;
+            objectID = objectManager.AddObject(2, true, new Vector2(WindowWidth/2,WindowHeight/2));
+            componentManager.perception.Add(objectManager.objectDictionary[objectID], selectType.NonMovable);
+            componentManager.combat.Add(objectManager.objectDictionary[objectID], 100f, 5f, 0.72f, 30f, true, true);
+            componentManager.graphics.Add(objectManager.objectDictionary[objectID], componentManager.graphics.Unit0, Color.White);
+
 
             #endregion
 
@@ -98,11 +106,11 @@ namespace Dotal_War
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             MouseState mouse = Mouse.GetState();
-            select.Run(mouse);
-            targetManager.RunManager(objectManger, mouse);
-            componentManager.RunSystems(gameTime, select,objectManger);
-            // TODO: Add your update logic here
 
+            select.Run(mouse);
+            targetManager.RunManager(objectManager, mouse);
+            componentManager.RunSystems(gameTime, select,objectManager,dmgDistribution);
+            objectManager.CleanUp(componentManager);
             base.Update(gameTime);
         }
 

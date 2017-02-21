@@ -11,16 +11,27 @@ namespace Dotal_War
     {
         #region Int/Float
         public int Objectid { get; set; }
+        public int AccessID { get; set; }
+        public int EnemyID { get; set; }
         public float Rotation { get; set; }
         public float max_Speed { get; set; }
         public float max_Acceleration { get; set; }
         public float decay_Coefficient { get; set; }
         public float threshold { get; set; }
+        public float attack_range { get; set; }
+        public float attack_speed { get; set; }
+        public float attack_dammage { get; set; }
+        public float defense_health { get; set; }
+        public float defense_armor { get; set; }
+        public float remainingDelay { get; set; }
         #endregion
 
         #region  Boolians
         public bool Selected { get; set; }
-
+        public bool canAttack { get; set; }
+        public bool validAttack { get; set; }
+        public bool AttackAble { get; set; }
+        public bool Alive { get; set; }
         #endregion
 
         #region Vector

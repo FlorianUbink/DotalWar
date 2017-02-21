@@ -16,13 +16,16 @@ namespace Dotal_War.Components
 
         public Texture2D Unit0 { get; set; }
         public Texture2D Building0 { get; set; }
-
+        public Texture2D Piksel { get; set; }
+        Rectangle healthBar;
 
         public Graphics(ContentManager content)
         {
             subscribers = new List<GameObject>();
             Unit0 = content.Load<Texture2D>(@"Placeholders\Unit0");
             Building0 = content.Load<Texture2D>(@"Placeholders\Building0");
+            Piksel = content.Load<Texture2D>(@"Misc\Piksel");
+            healthBar = new Rectangle(0, 0, 0, 2);
         }
 
         public void Add(GameObject subject, Texture2D sprite, Color color)
@@ -32,6 +35,15 @@ namespace Dotal_War.Components
             subject.Origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
             subscribers.Add(subject);
         }
+
+        public void Remove(GameObject removeObject)
+        {
+            if (subscribers.Contains(removeObject))
+            {
+                subscribers.Remove(removeObject);
+            }
+        }
+
 
         public void RunSystem(SpriteBatch spriteBatch)
         {
@@ -50,6 +62,15 @@ namespace Dotal_War.Components
                 // ### TESTEND ####
 
                 spriteBatch.Draw(update.Sprite, update.Position, null, update.Color, update.Rotation, update.Origin, 1f, SpriteEffects.None, 0f);
+
+                if (update.AttackAble)
+                {
+                    healthBar.Width = (int)update.defense_health/5;
+                    healthBar.X = (int)(update.Position.X - healthBar.Width/2);
+                    healthBar.Y = (int)(update.Position.Y - 15);
+
+                    spriteBatch.Draw(Piksel, healthBar, Color.Green);
+                }
             }
         }
 

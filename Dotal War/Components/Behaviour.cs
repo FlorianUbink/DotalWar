@@ -28,14 +28,21 @@ namespace Dotal_War.Components
             subject.threshold = threshold;
         }
 
+        public void Remove(GameObject removeObject)
+        {
+            if (subscribers.Contains(removeObject))
+            {
+                subscribers.Remove(removeObject);
+            }
+        }
+
+
         public void RunSystem()
         {
             foreach(GameObject update in subscribers)
             {
                 findTarget = TargetSeek(update);
                 seperation = Seperation(update);
-
-                Debug.WriteLine("seekStrength: {0} seperationStrength: {1}", findTarget.Length(), seperation.Length());
                 update.LiniarSteer = (findTarget + seperation)/2;
             }
         }

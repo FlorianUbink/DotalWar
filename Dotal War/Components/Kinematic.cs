@@ -24,6 +24,15 @@ namespace Dotal_War.Components
             
         }
 
+        public void Remove(GameObject removeObject)
+        {
+            if (subscribers.Contains(removeObject))
+            {
+                subscribers.Remove(removeObject);
+            }
+        }
+
+
         public void RunSystem(GameTime gameTime)
         {
             foreach (GameObject update in subscribers)

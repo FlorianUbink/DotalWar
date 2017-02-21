@@ -6,10 +6,11 @@ namespace Dotal_War
 {
     public class GameObject:Bag
     {
-
-        public GameObject(int objectid, Vector2 position)
+        public GameObject(int objectid,int AccessID, bool alive ,Vector2 position)
         {
-            this.Objectid = objectid;
+            Objectid = objectid;
+            Alive = alive;
+            this.AccessID = AccessID;
             Position = position;
         }
     }

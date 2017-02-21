@@ -11,23 +11,27 @@ namespace Dotal_War
         #region Fields
 
         public Rectangle selectRectangle;
-        public bool lockedSelection { get; set; }
+        public bool lockedSelection { get; set;}
         Game1 myGame;
         bool mSelect = false;
         Point mInitial = new Point();
         Texture2D piksel;
         Color drawColor;
         const int Thickness = 1;
+        public int AccessID { get;} // which player has access to function?
+
 
         #endregion
 
-        public SelectionRectange(Game1 myGame)
+        public SelectionRectange(Game1 myGame, int AccessID)
         {
+            this.AccessID = AccessID;
             selectRectangle = new Rectangle();
             lockedSelection = false;
             this.myGame = myGame;
             piksel = myGame.Content.Load<Texture2D>(@"Misc\Piksel");
             drawColor = Color.White;
+
         }
 
         public void Run(MouseState mouse)
