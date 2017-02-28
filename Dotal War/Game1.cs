@@ -124,7 +124,14 @@ namespace Dotal_War
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            foreach (TMaping tmap in targetManager.target_maps)
+            {
+                tmap.draw(spriteBatch, componentManager.graphics.Piksel);
+            }
             componentManager.graphics.RunSystem(spriteBatch);
+            
+
+
             select.Draw(spriteBatch);
             spriteBatch.End();
 

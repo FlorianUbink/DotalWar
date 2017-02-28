@@ -61,7 +61,16 @@ namespace Dotal_War.Components
                 }
                 // ### TESTEND ####
 
-                spriteBatch.Draw(update.Sprite, update.Position, null, update.Color, update.Rotation, update.Origin, 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(update.Sprite,                     // Texture
+                                 update.Position,                   // Draw position
+                                 null,                              // mask rectangle
+                                 update.Color,                      // draw color
+                                 update.Rotation,                   // rotation
+                                 update.Origin,                     // immage center
+                                 1f,                                // size
+                                 SpriteEffects.None,                // XNA effects
+                                 0f);                               // Depth Layer
+
 
                 if (update.AttackAble)
                 {

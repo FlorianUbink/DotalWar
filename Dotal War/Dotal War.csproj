@@ -41,7 +41,7 @@
     <Compile Include="Collections\Bag.cs" />
     <Compile Include="Components\Combat.cs" />
     <Compile Include="Managers\DammageDistribution.cs" />
-    <Compile Include="Managers\ObjectManager.cs" />
+    <Compile Include="ObjectManager.cs" />
     <Compile Include="Components\Behaviour.cs" />
     <Compile Include="Components\Graphics.cs" />
     <Compile Include="Components\Kinematic.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectionRectangle.cs" />
+    <Compile Include="TMaping.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

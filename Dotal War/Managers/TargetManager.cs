@@ -15,14 +15,22 @@ namespace Dotal_War.Managers
         ButtonState rightPrevious;
         List<GameObject> selected;
         List<Vector2> targets;
+        public List<TMaping> target_maps;
 
         public TargetManager()
         {
             selected = new List<GameObject>();
+            target_maps = new List<TMaping>();
         }
 
         public void RunManager(ObjectManager objectManager, MouseState mouse)
         {
+            foreach (TMaping tmap in target_maps)
+            {
+                tmap.UpdateLoop();
+            }
+
+
             if (mouse.RightButton == ButtonState.Released && rightPrevious == ButtonState.Pressed)
             {
                 foreach (GameObject update in objectManager.objectDictionary.Values)
@@ -33,19 +41,22 @@ namespace Dotal_War.Managers
                     }
                 }
 
-                targets = Formation(selected.Count, new Vector2(mouse.X,mouse.Y));
-
-                for (int i = 0; i < selected.Count; i++)
+                if (selected.Count != 0)
                 {
-                    selected[i].Target = targets[i];
+                    target_maps.Add(new TMaping(new Vector2(mouse.X, mouse.Y), selected));
                 }
+
+
+                // targets = Formation(selected.Count, new Vector2(mouse.X,mouse.Y));
+
+                //for (int i = 0; i < selected.Count; i++)
+                //{
+                //    selected[i].Target = targets[i];
+                //}
             }
 
-            if (selected.Count != 0)
-            {
-                targets.Clear();
-                selected.Clear();
-            }
+
+            selected.Clear();
 
             rightPrevious = mouse.RightButton;
         }
